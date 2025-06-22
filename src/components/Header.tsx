@@ -33,7 +33,7 @@ export default function Header() {
           <div className="flex items-center gap-3">
             {/* GitHub Link */}
             <Link
-              href={"https://github.com/Echoinbyte/Juice"}
+              href={"https://github.com/Hashzennn/Juice"}
               className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors group"
             >
               <FiGithub
