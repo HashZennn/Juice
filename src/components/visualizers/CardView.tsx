@@ -24,7 +24,7 @@ function renderCard(
   const type =
     value === null ? "null" : Array.isArray(value) ? "array" : typeof value;
 
-  const getTypeIcon = (type: string, value: JsonValue) => {
+  const getTypeIcon = (type: string) => {
     switch (type) {
       case "object":
         return <FiFolder className="w-4 h-4" />;
@@ -92,6 +92,7 @@ function renderCard(
           depth > 0 ? "ml-4" : ""
         }`}
       >
+        {" "}
         {/* Header */}
         <div className="p-4 border-b border-gray-100 dark:border-gray-700">
           <div className="flex items-center justify-between">
@@ -101,7 +102,7 @@ function renderCard(
                   type
                 )} p-1.5 bg-gray-50 dark:bg-gray-700 rounded`}
               >
-                {getTypeIcon(type, value)}
+                {getTypeIcon(type)}
               </div>
               <div>
                 <h3 className="font-medium text-gray-900 dark:text-gray-100">
@@ -122,7 +123,6 @@ function renderCard(
             </span>
           </div>
         </div>
-
         {/* Content */}
         <div className="p-4">
           <div className="space-y-3">
@@ -142,9 +142,10 @@ function renderCard(
                   key={propKey}
                   className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg group/item hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
                 >
+                  {" "}
                   <div className="flex items-center gap-3 min-w-0 flex-1">
                     <div className={`${getTypeColor(propType)} flex-shrink-0`}>
-                      {getTypeIcon(propType, propValue)}
+                      {getTypeIcon(propType)}
                     </div>
                     <span className="font-medium text-gray-900 dark:text-gray-100 truncate">
                       {propKey}
@@ -178,7 +179,6 @@ function renderCard(
             })}
           </div>
         </div>
-
         {/* Nested Objects */}
         {entries.some(
           ([, propValue]) =>
@@ -218,7 +218,7 @@ function renderCard(
           depth > 0 ? "ml-4" : ""
         }`}
       >
-        {/* Header */}
+        {/* Header */}{" "}
         <div className="p-4 border-b border-gray-100 dark:border-gray-700">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -227,7 +227,7 @@ function renderCard(
                   type
                 )} p-1.5 bg-gray-50 dark:bg-gray-700 rounded`}
               >
-                {getTypeIcon(type, value)}
+                {getTypeIcon(type)}
               </div>
               <div>
                 <h3 className="font-medium text-gray-900 dark:text-gray-100">
@@ -247,7 +247,6 @@ function renderCard(
             </span>
           </div>
         </div>
-
         {/* Content */}
         <div className="p-4">
           <div className="space-y-3">
@@ -267,9 +266,10 @@ function renderCard(
                   key={index}
                   className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg group/item hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
                 >
+                  {" "}
                   <div className="flex items-center gap-3 min-w-0 flex-1">
                     <div className={`${getTypeColor(itemType)} flex-shrink-0`}>
-                      {getTypeIcon(itemType, item)}
+                      {getTypeIcon(itemType)}
                     </div>
                     <span className="font-medium text-gray-900 dark:text-gray-100">
                       [{index}]
@@ -303,7 +303,6 @@ function renderCard(
             })}
           </div>
         </div>
-
         {/* Nested Objects */}
         {arr.some(
           (item) =>
@@ -341,6 +340,7 @@ function renderCard(
       }`}
     >
       <div className="p-4">
+        {" "}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div
@@ -348,7 +348,7 @@ function renderCard(
                 type
               )} p-1.5 bg-gray-50 dark:bg-gray-700 rounded`}
             >
-              {getTypeIcon(type, value)}
+              {getTypeIcon(type)}
             </div>
             <div>
               <h3 className="font-medium text-gray-900 dark:text-gray-100">
@@ -367,7 +367,6 @@ function renderCard(
             {type}
           </span>
         </div>
-
         <div className="mt-3 p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
           <code className="text-sm font-mono text-gray-900 dark:text-gray-100 break-all">
             {type === "string" ? `"${value}"` : String(value)}
